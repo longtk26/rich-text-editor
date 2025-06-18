@@ -23,6 +23,7 @@ import {
     useCreateBlockNote,
     blockTypeSelectItems,
     AddFileButton,
+    FileBlock,
     FileDownloadButton,
 } from "@blocknote/react";
 import { Link as LinkIcon } from "lucide-react";
@@ -166,15 +167,14 @@ const RichEditor = () => {
             <BlockNoteView
                 editor={editor}
                 theme={"light"}
-                // onChange={() => {
-                //     const jsonBlocks = editor.document;
-                //     setBlocks(jsonBlocks);
-                // }}
+                onChange={() => {
+                    const jsonBlocks = editor.document;
+                    setBlocks(jsonBlocks);
+                }}
                 formattingToolbar={false}
+                slashMenu={false}
             >
                 <FormattingToolbar>
-                    <FileCaptionButton key={"fileCaptionButton"} />
-                    <FileReplaceButton key={"replaceFileButton"} />
                     <BasicTextStyleButton
                         basicTextStyle={"bold"}
                         key={"boldStyleButton"}
