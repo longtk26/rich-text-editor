@@ -2,9 +2,8 @@ import { BlockNoteEditor } from "@blocknote/core";
 import "@blocknote/mantine/style.css";
 import { useComponentsContext } from "@blocknote/react";
 import { useRef, useState } from "react";
-import { FileIcon } from "lucide-react";
 
-export function InsertFileButton({ editor }: { editor: BlockNoteEditor }) {
+export function InsertFileButton({ editor }: { editor: any }) {
     const Components = useComponentsContext()!;
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [isUploading, setIsUploading] = useState(false);
@@ -87,7 +86,7 @@ export function InsertFileButton({ editor }: { editor: BlockNoteEditor }) {
                 isSelected={false}
                 isDisabled={isUploading}
             >
-                <FileIcon className="w-4 h-4" />
+                {isUploading ? "⏳" : "📎"}
             </Components.FormattingToolbar.Button>
         </>
     );
